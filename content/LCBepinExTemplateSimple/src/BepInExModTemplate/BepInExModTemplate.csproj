@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+
+    <AssemblyName>BepInExModTemplate</AssemblyName>
+    <Product>$(AssemblyName)</Product>
+    <Version>1.0.0</Version>
+
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference
+      Include="BepInEx.Analyzers"
+      PrivateAssets="all"
+      Version="1.*" />
+
+    <PackageReference
+      Include="BepInEx.Core"
+      Version="5.4.*" />
+
+    <!-- Keep this up to date with the newest gamelibs as the game updates-->
+    <PackageReference
+      Include="LethalCompany.GameLibs.Steam"
+      Version="69.0.1-ngd.0"
+      Private="False"
+      Publicize="True"
+    />
+  </ItemGroup>
+
+  <!-- 
+  How to include thunderstore mods as dependencies via nuget
+
+  I have already added the windows10ce nuget feed to this project
+  in NuGet.Config so all you need to do is list a dependency like
+  this:
+
+  <ItemGroup>
+    <PackageReference Include="Evaisa-LethalLib" Version="0.16.1" Private="False"/>
+  </ItemGroup>
+
+  Private="false" will stop it from being copied to the output folder
+  during build. This will cause LethalLib to be downloaded and its
+  methods will be available at compile time for your code. You'll still
+  need to add it as a dependency in your manifest.json, of course
+  -->
+
+  <Import Project="$(SolutionRoot)Config.Build.user.props" />
+
+</Project>
