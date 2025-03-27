@@ -10,7 +10,7 @@
     <Authors>Robyn</Authors>
     <Description>A simple BepInEx template for making mods for Lethal Company</Description>
     <PackageTags>dotnet new; template; BepInEx; Lethal Company</PackageTags>
-    <PackageProjectUrl>https://github.com/LethalCompanyModding/BepInExSimpleTemplate</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/LethalCompanyModding/BepinExTemplateSimple</PackageProjectUrl>
     <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
 
     <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and
