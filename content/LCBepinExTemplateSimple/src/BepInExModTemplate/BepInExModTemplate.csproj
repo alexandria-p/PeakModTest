@@ -9,26 +9,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference
-      Include="BepInEx.Analyzers"
-      PrivateAssets="all"
-      Version="1.*" />
-
-    <PackageReference
-      Include="BepInEx.Core"
-      Version="5.4.*" />
-
-    <!-- Keep this up to date with the newest gamelibs as the game updates-->
-    <PackageReference
-      Include="LethalCompany.GameLibs.Steam"
-      Version="69.0.1-ngd.0"
-      Private="False"
-      Publicize="True"
-    />
-  </ItemGroup>
-
-  <!-- 
+  <!--
   How to include thunderstore mods as dependencies via nuget
 
   I have already added the windows10ce nuget feed to this project
@@ -44,7 +25,5 @@
   methods will be available at compile time for your code. You'll still
   need to add it as a dependency in your manifest.json, of course
   -->
-
-  <Import Project="$(SolutionRoot)Config.Build.user.props" />
 
 </Project>
