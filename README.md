@@ -1,19 +1,18 @@
-# BepInExModTemplate (Simple) for Lethal Company
+# BepInEx Template for PEAK
 
-This Repo is a simple alternative for the BepInEx+Publishing Template in the Lethal Company Community
-
-- [Installing (Nuget)](#installing-nuget)
-- [Installing (Manually)](#installing-manually)
-- [Using](#using)
-  - [Setting Up The Config File](#setting-up-the-config-file)
-- [Manually Using the Build Directives](#manually-using-the-build-directives)
+- [BepInEx Template for PEAK](#bepinex-template-for-peak)
+  - [Installing (Nuget)](#installing-nuget)
+  - [Installing (Manually)](#installing-manually)
+  - [Using](#using)
+    - [Setting Up The Config File](#setting-up-the-config-file)
+  - [Manually Using the Build Directives](#manually-using-the-build-directives)
 
 ## Installing (Nuget)
 
 Run the following command
 
 ```bash
-dotnet new install dev.mamallama.lethal.bepinsimple
+dotnet new install PEAKModding.BepInExTemplate
 ```
 
 ## Installing (Manually)

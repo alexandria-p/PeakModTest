@@ -4,13 +4,13 @@
     <!-- The package metadata. Fill in the properties marked as TODO below -->
     <!-- Follow the instructions on
     https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices -->
-    <PackageId>dev.mamallama.lethal.bepinsimple</PackageId>
+    <PackageId>PEAKModding.BepInExTemplate</PackageId>
     <PackageVersion>1.0.0</PackageVersion>
-    <Title>Lethal Company BepInEx Plugin Simple Template</Title>
-    <Authors>Robyn</Authors>
-    <Description>A simple BepInEx template for making mods for Lethal Company</Description>
-    <PackageTags>dotnet new; template; BepInEx; Lethal Company</PackageTags>
-    <PackageProjectUrl>https://github.com/LethalCompanyModding/BepinExTemplateSimple</PackageProjectUrl>
+    <Title>PEAK BepInEx Template</Title>
+    <Authors>Robyn, Hamunii</Authors>
+    <Description>A BepInEx template for making mods for PEAK</Description>
+    <PackageTags>dotnet new; template; BepInEx; PEAK</PackageTags>
+    <PackageProjectUrl>https://github.com/PEAKModding/BepInExTemplate</PackageProjectUrl>
     <PackageLicenseExpression>CC0-1.0</PackageLicenseExpression>
 
     <!-- Keep package type as 'Template' to show the package as a template package on nuget.org and
