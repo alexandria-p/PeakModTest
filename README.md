@@ -7,7 +7,6 @@
   - [Creating a Project](#creating-a-project)
     - [Project Structure](#project-structure)
     - [Setting Up The Config File](#setting-up-the-config-file)
-  - [Manually Using the Build Directives](#manually-using-the-build-directives)
 
 ## Installing
 
@@ -83,21 +82,6 @@ The `Directory.Build.*` files contain shared configuration for all projects in s
 
 ### Setting Up The Config File
 
-At the root of your new project you should see `Config.Build.user.props.template` this is a special file that is the template for the project's config. It needs to know where your copy of the game is.
-Make a copy of this file and rename it `Config.Build.user.props` without the template part.
+At the root of your new project you should see `Config.Build.user.props.template` this is a special file that is the template for the project's user-specific config. Make a copy of this file and rename it `Config.Build.user.props` without the template part.
 
-Open it in a text editor and replace `full/path/to/game` inside `<GameDir>full/path/to/game</GameDir>` with the actual full path to your game. This is the path when you right click the game in your Steam library and select "Browse Local Files"
-Save the file and you're ready to start making a mod!
-
-## Manually Using the Build Directives
-
-Both Visual Studio and Visual Studio Code tasks are included for building and deploying the plugin to your game directory but if for some reason these don't work you can use the following commands in the terminal in your project folder that contains the `.sln` file:
-
-> [!NOTE]  
-> These actions depend on the config file being set up!
-
-- `dotnet build -p:DeployToProd=true` to build and deploy to your plugins folder
-- `dotnet build -p:BuildStaging=true` to build the project and zip it up in the `artifacts` folder. This zip will be suitable for github releases
-
-> [!WARNING]
-> The BuildToStaging action depends on your project having a LICENSE file in the root folder alongside the solution file!
+This file will copy your assembly files to a plugins directory and it can be used to configure your paths to the game files and BepInEx plugins directory if the defaults don't work for you.
