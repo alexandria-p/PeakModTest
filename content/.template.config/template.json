@@ -26,6 +26,14 @@
             "replaces": "_Guid_",
             "isRequired": "true"
         },
+        "ts-team": {
+            "type": "parameter",
+            "displayName": "Thunderstore Team",
+            "description": "The thunderstore team to publish this package under.",
+            "datatype": "text",
+            "replaces": "_ts-team_",
+            "isRequired": "true"
+        },
         "no-tutorial": {
             "type": "parameter",
             "displayName": "No Tutorial",

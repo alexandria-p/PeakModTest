@@ -17,4 +17,21 @@
   <ItemGroup>
     <PackageReference Include="UnityEngine.Modules" Version="6000.0.36" PrivateAssets="all" />
   </ItemGroup>
+
+  <!--
+    Build Thunderstore package by calling `dotnet build -c Release -target:PackTS`.
+    Publish to Thunderstore by including `-property:PublishTS=true` in the command.
+  -->
+  <Target Name="PackTS" DependsOnTargets="PostBuildEvent" Condition="$(ThunderstorePackable) != 'false'">
+    <Error
+      Text=" PackTS must be called with Release configuration."
+      Condition="'$(Configuration)' != 'Release'"
+    />
+    <PropertyGroup>
+      <BuildArgument Condition="'$(PublishTS)' != 'true'">build</BuildArgument>
+      <BuildArgument Condition="'$(PublishTS)' == 'true'">publish</BuildArgument>
+    </PropertyGroup>
+    <Exec Command="dotnet tool restore" />
+    <Exec Command="dotnet tcli $(BuildArgument) --package-version $(Version)" />
+  </Target>
 </Project>
