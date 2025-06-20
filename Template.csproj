@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="content\**\*" Exclude="content\**\bin\**;content\**\obj\**" />
+    <Content Include="content\*" Exclude="content\*\artifacts\" />
     <Compile Remove="**\*" />
   </ItemGroup>
 

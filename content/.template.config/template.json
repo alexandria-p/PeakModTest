@@ -10,7 +10,7 @@
     ],
     "identity": "com.github.PEAKModding.BepInExTemplate",
     "name": "PEAK BepInEx Plugin",
-    "shortName": "peakplugin",
+    "shortName": "peakmod",
     "tags": {
         "language": "C#",
         "type": "project"
