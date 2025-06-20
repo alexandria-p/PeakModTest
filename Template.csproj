@@ -35,8 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="content\*" Exclude="content\*\artifacts\" />
-    <Compile Remove="**\*" />
+    <Content Include="content/**" Exclude="content/*/artifacts/**;content/*/Config.Build.user.props" />
+    <Compile Remove="**/*" />
   </ItemGroup>
 
   <ItemGroup>
