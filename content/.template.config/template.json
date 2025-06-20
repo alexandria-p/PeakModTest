@@ -33,6 +33,13 @@
             "datatype": "bool",
             "defaultValue": "false"
         },
+        "library": {
+            "type": "parameter",
+            "displayName": "Library",
+            "description": "If true, NuGet metadata is included in the project.",
+            "datatype": "bool",
+            "defaultValue": "false"
+        },
         "725F983D-24CD-4EC1-A08A-FEF64D1A04D0": {
             "type": "generated",
             "generator": "guid"

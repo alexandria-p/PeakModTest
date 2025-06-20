@@ -23,8 +23,8 @@ public partial class Plugin : BaseUnityPlugin
         // See https://lethal.wiki/dev/fundamentals/logging
 //#endif
         Log = Logger;
-//#if (!no-tutorial)
 
+//#if (!no-tutorial)
         // BepInEx also gives us a config file for easy configuration.
         // See https://lethal.wiki/dev/intermediate/custom-configs
 

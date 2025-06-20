@@ -19,6 +19,23 @@
     <Version>0.1.0</Version>
   </PropertyGroup>
 
+<!--#if (library) -->
+  <!-- NuGet metadata -->
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <!--
+      TODO: Fill these values. See:
+      https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices
+    -->
+    <PackageId></PackageId>
+    <Description></Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(SolutionRoot)README.md" Pack="true" PackagePath="/" />
+    <None Include="$(SolutionRoot)icon.png" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+<!--#endif -->
 <!--#if (!no-tutorial) -->
   <!--
   How to include thunderstore mods as dependencies via nuget
@@ -36,5 +53,6 @@
   methods will be available at compile time for your code. You'll still
   need to add it as a dependency in your manifest.json, of course
   -->
+
 <!--#endif -->
 </Project>
