@@ -7,6 +7,8 @@
   - [Creating a Project](#creating-a-project)
     - [Project Structure](#project-structure)
     - [Setting Up The Config File](#setting-up-the-config-file)
+    - [Thunderstore Packaging](#thunderstore-packaging)
+    - [GitHub Actions Publishing](#github-actions-publishing)
 
 ## Installing
 
@@ -31,7 +33,7 @@ If you don't want to install via NuGet or are contributing to this template, you
 - Navigate inside the repository root directory
 - Open a Terminal/Powershell/Bash window inside this folder and use the following command to install it: `dotnet new install .`
   - Note: If you are updating the template from an older version use `dotnet new install . --force` instead
-  - Note: To uninstall it, run `dotnet new uninstall .` instead
+  - Note: To uninstall it, run `dotnet new uninstall .`
 
 Great! The template is now installed locally as PEAK BepInEx Plugin.
 
@@ -43,7 +45,7 @@ Great! The template is now installed locally as PEAK BepInEx Plugin.
 Open a terminal in your PEAK modding directory, and run:
 
 ```sh
- dotnet new peakmod --name ModName --guid com.github.YourAccount.ModName
+ dotnet new peakmod --name ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
 ```
 
 This will create a new directory with the mod name which contains the project.
@@ -55,7 +57,7 @@ You now have a (mostly) working setup. For automated build copying you'll need t
 This example demonstrates what files should appear and where:
 
 ```sh
-~/Workspace/PEAK$ dotnet new peakmod --name PeakMod --guid com.github.PEAKModding.PeakMod
+~/Workspace/PEAK$ dotnet new peakmod --name PeakMod --guid com.github.PEAKModding --ts-team PEAKModding
 The template "PEAK BepInEx Plugin" was created successfully.
 
 ~/Workspace/PEAK$ cd PeakMod/
@@ -88,3 +90,18 @@ The `Directory.Build.*` files contain shared configuration for all projects in s
 At the root of your new project you should see `Config.Build.user.props.template` this is a special file that is the template for the project's user-specific config. Make a copy of this file and rename it `Config.Build.user.props` without the template part.
 
 This file will copy your assembly files to a plugins directory and it can be used to configure your paths to the game files and BepInEx plugins directory if the defaults don't work for you.
+
+### Thunderstore Packaging
+
+This template comes with Thunderstore packaging built-in, using [TCLI](<https://github.com/thunderstore-io/thunderstore-cli>). You should configure the `src/<project-name>/thunderstore.toml` file for your mod, such as setting the description for your mod.
+
+You can build Thunderstore packages by running `dotnet build -c Release -target:PackTS`. The built package will be found at `artifacts/thunderstore/`.
+
+You can also directly publish to Thunderstore by including `-property:PublishTS=true` in the command.
+
+> [!NOTE]
+> For publishing to Thunderstore, you need a Thunderstore API token. The publishing to Thunderstore option is intended to be used via automated GitHub actions workflows, so you don't need to worry about it.
+
+### GitHub Actions Publishing
+
+Coming soon.
