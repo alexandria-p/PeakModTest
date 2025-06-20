@@ -40,7 +40,7 @@ Great! The template is now installed locally as PEAK BepInEx Plugin.
 ## Creating a Project
 
 > [!TIP]  
-> If you've done this before, you can use the `--no-tutorial` option to get rid of tutorial comments.
+> If you've done this before, you can use the `--no-tutorial` option to get rid of tutorial comments. Note that this doesn't get rid of *all* comments.
 
 Open a terminal in your PEAK modding directory, and run:
 
@@ -50,7 +50,7 @@ Open a terminal in your PEAK modding directory, and run:
 
 This will create a new directory with the mod name which contains the project.
 
-You now have a (mostly) working setup. For automated build copying you'll need to follow some extra steps!
+You now have a (mostly) working setup. See [Setting Up The Config File](#setting-up-the-config-file) and [Thunderstore Packaging](#thunderstore-packaging) for more.
 
 ### Project Structure
 
