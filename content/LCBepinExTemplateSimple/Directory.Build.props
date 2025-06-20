@@ -2,25 +2,17 @@
 
   <!-- Primary configuration for the project. -->
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <!-- Use latest C# version. -->
     <LangVersion>latest</LangVersion>
     <!-- See: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references -->
     <Nullable>enable</Nullable>
-    <!-- Allows references to non-public members at runtime, for use with BepInEx.AssemblyPublicizer. -->
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <!-- Enable debug symbols. This will show source code line numbers in stack traces. -->
-  <PropertyGroup>
+    <!-- Build, and other generated files go nicely into artifacts/ directory. -->
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <!-- Enable debug symbols. This will show source code line numbers in stack traces. -->
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
     <!-- Substitute full path to this directory with ./, hiding it from debug symbols. -->
     <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <!-- Build, and other generated files go nicely into artifacts/ directory. -->
-    <UseArtifactsOutput>true</UseArtifactsOutput>
   </PropertyGroup>
 
   <!-- Define a variable that points to this directory. -->

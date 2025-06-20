@@ -1,52 +1,20 @@
 <Project>
 
-  <Import Project="$(SolutionRoot)Config.Build.user.props"
-    Condition="Exists('$(SolutionRoot)Config.Build.user.props')" />
+  <Import
+    Project="$(SolutionRoot)Config.Build.user.props"
+    Condition="Exists('$(SolutionRoot)Config.Build.user.props')"
+  />
 
+  <!-- Modding Dependencies -->
   <ItemGroup>
-    <PackageReference
-      Include="BepInEx.Analyzers"
-      Version="1.*"
-      PrivateAssets="all" />
-
-    <PackageReference
-      Include="BepInEx.Core"
-      Version="5.4.21" />
-
-    <!-- Keep this up to date with the newest GameLibs as the game updates. -->
-    <PackageReference
-      Include="LethalCompany.GameLibs.Steam"
-      Version="69.0.1-ngd.0"
-      Private="False"
-      PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.4.21" />
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+    <PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.*" PrivateAssets="all" />
   </ItemGroup>
 
-  <Target Name="AddGeneratedFile" BeforeTargets="BeforeCompile;CoreCompile"
-      Inputs="$(MSBuildAllProjects)" Outputs="$(IntermediateOutputPath)LCMPluginInfo.cs">
-
-    <PropertyGroup>
-      <LCMPluginGuid Condition="'$(LCMPluginGuid)' == ''">$(AssemblyName)</LCMPluginGuid>
-      <LCMPluginName Condition="'$(LCMPluginName)' == ''">$(Product)</LCMPluginName>
-      <LCMPluginVersion Condition="'$(LCMPluginVersion)' == ''">$(Version)</LCMPluginVersion>
-      <GeneratedText><![CDATA[
-internal static class LCMPluginInfo
-{
-  public const string PLUGIN_GUID = "$(LCMPluginGuid)"%3B
-  public const string PLUGIN_NAME = "$(LCMPluginName)"%3B
-  public const string PLUGIN_VERSION = "$(LCMPluginVersion)"%3B
-}
-]]></GeneratedText>
-      <GeneratedFilePath>$(IntermediateOutputPath)LCMPluginInfo.cs</GeneratedFilePath>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Include="$(GeneratedFilePath)" />
-      <FileWrites Include="$(GeneratedFilePath)" />
-    </ItemGroup>
-
-    <WriteLinesToFile Lines="$(GeneratedText)" File="$(GeneratedFilePath)"
-        WriteOnlyWhenDifferent="true" Overwrite="true" />
-
-  </Target>
-
+  <!-- Game References -->
+  <ItemGroup>
+    <PackageReference Include="UnityEngine.Modules" Version="6000.0.36" />
+  </ItemGroup>
 </Project>
