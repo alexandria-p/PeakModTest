@@ -18,6 +18,14 @@
     "sourceName": "BepInExModTemplate",
     "defaultName": "MyPlugin",
     "symbols": {
+        "guid": {
+            "type": "parameter",
+            "displayName": "GUID",
+            "description": "The global identifier for your mod. Example: com.github.YourAccount.ModName",
+            "datatype": "text",
+            "replaces": "{Guid}",
+            "isRequired": true
+        },
         "725F983D-24CD-4EC1-A08A-FEF64D1A04D0": {
             "type": "generated",
             "generator": "guid"
