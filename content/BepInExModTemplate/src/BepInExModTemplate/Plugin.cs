@@ -3,12 +3,14 @@ using BepInEx.Logging;
 
 namespace BepInExModTemplate;
 
+//#if (!no-tutorial)
 // Here are some basic resources on code style and naming conventions to help
 // you in your first CSharp plugin!
 // https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions
 // https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/identifier-names
 // https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/names-of-namespaces
 
+//#endif
 [BepInAutoPlugin]
 public partial class Plugin : BaseUnityPlugin
 {
@@ -16,9 +18,12 @@ public partial class Plugin : BaseUnityPlugin
 
     private void Awake()
     {
+//#if (!no-tutorial)
         // BepInEx gives us a logger which we can use to log information.
         // See https://lethal.wiki/dev/fundamentals/logging
+//#endif
         Log = Logger;
+//#if (!no-tutorial)
 
         // BepInEx also gives us a config file for easy configuration.
         // See https://lethal.wiki/dev/intermediate/custom-configs
@@ -27,6 +32,7 @@ public partial class Plugin : BaseUnityPlugin
         // See https://lethal.wiki/dev/fundamentals/patching-code
 
         // Log our awake here so we can see it in LogOutput.log file
+//#endif
         Log.LogInfo($"Plugin {Name} is loaded!");
     }
 }

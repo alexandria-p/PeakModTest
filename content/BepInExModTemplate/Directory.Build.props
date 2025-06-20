@@ -1,22 +1,37 @@
 <Project>
 
-  <!-- Primary configuration for the project. -->
+  <!-- Primary configuration for the project -->
   <PropertyGroup>
+<!--#if (!no-tutorial) -->
     <!-- Use latest C# version. -->
+<!--#endif -->
     <LangVersion>latest</LangVersion>
+<!--#if (!no-tutorial) -->
     <!-- See: https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references -->
+<!--#endif -->
     <Nullable>enable</Nullable>
+<!--#if (!no-tutorial) -->
     <!-- Build, and other generated files go nicely into artifacts/ directory. -->
+<!--#endif -->
     <UseArtifactsOutput>true</UseArtifactsOutput>
+<!--#if (!no-tutorial) -->
     <!-- Enable debug symbols. This will show source code line numbers in stack traces. -->
+<!--#endif -->
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+<!--#if (!no-tutorial) -->
     <!-- Substitute full path to this directory with ./, hiding it from debug symbols. -->
+<!--#endif -->
     <PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
   </PropertyGroup>
 
-  <!-- Define a variable that points to this directory. -->
+  <!-- Custom props -->
   <PropertyGroup>
+<!--#if (!no-tutorial) -->
+    <!-- Define a variable that points to this directory. -->
+<!--#endif -->
     <SolutionRoot>$(MSBuildThisFileDirectory)</SolutionRoot>
   </PropertyGroup>
 

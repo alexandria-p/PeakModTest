@@ -1,16 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+<!--#if (!no-tutorial) -->
     <!-- This is the most appropriate target framework for the game's Unity version. -->
+<!--#endif -->
     <TargetFramework>netstandard2.1</TargetFramework>
+<!--#if (!no-tutorial) -->
     <!-- This is the GUID of your mod. Example: com.github.PEAKModding.BepInExTemplate -->
-    <AssemblyName>{Guid}</AssemblyName>
+<!--#endif -->
+    <AssemblyName>_Guid_</AssemblyName>
+<!--#if (!no-tutorial) -->
     <!-- This is the display name of your mod. Example: BepInEx Template -->
+<!--#endif -->
     <AssemblyTitle>BepInExModTemplate</AssemblyTitle>
+<!--#if (!no-tutorial) -->
     <!-- This is the version number of your mod. -->
+<!--#endif -->
     <Version>0.1.0</Version>
   </PropertyGroup>
 
+<!--#if (!no-tutorial) -->
   <!--
   How to include thunderstore mods as dependencies via nuget
 
@@ -27,5 +36,5 @@
   methods will be available at compile time for your code. You'll still
   need to add it as a dependency in your manifest.json, of course
   -->
-
+<!--#endif -->
 </Project>

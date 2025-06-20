@@ -23,8 +23,15 @@
             "displayName": "GUID",
             "description": "The global identifier for your mod. Example: com.github.YourAccount.ModName",
             "datatype": "text",
-            "replaces": "{Guid}",
-            "isRequired": true
+            "replaces": "_Guid_",
+            "isRequired": "true"
+        },
+        "no-tutorial": {
+            "type": "parameter",
+            "displayName": "No Tutorial",
+            "description": "If true, tutorial comments will not be present.",
+            "datatype": "bool",
+            "defaultValue": "false"
         },
         "725F983D-24CD-4EC1-A08A-FEF64D1A04D0": {
             "type": "generated",
