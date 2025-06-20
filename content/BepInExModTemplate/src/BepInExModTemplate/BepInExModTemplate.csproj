@@ -35,6 +35,11 @@
     <None Include="$(SolutionRoot)icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
+  <!-- Local game references -->
+  <ItemGroup Condition="Exists('$(ManagedDir)')">
+    <Reference Include="$(ManagedDir)Assembly-CSharp.dll" Private="false" />
+  </ItemGroup>
+
 <!--#endif -->
 <!--#if (!no-tutorial) -->
   <!--
