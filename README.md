@@ -61,19 +61,22 @@ The template "PEAK BepInEx Plugin" was created successfully.
 ~/Workspace/PEAK$ cd PeakMod/
 ~/Workspace/PEAK/PeakMod$ tree
 .
+├── CHANGELOG.md
 ├── Config.Build.user.props.template
 ├── Directory.Build.props
 ├── Directory.Build.targets
+├── icon.png
 ├── LICENSE
-├── PeakMod.sln
 ├── NuGet.Config
+├── PeakMod.sln
 ├── README.md
 └── src
     └── PeakMod
         ├── PeakMod.csproj
-        └── Plugin.cs
+        ├── Plugin.cs
+        └── thunderstore.toml
 
-3 directories, 9 files
+3 directories, 12 files
 ```
 
 The C# source files for your mod are located in `./src/<project-name>/`. All files above that are more generic project configuration files.
