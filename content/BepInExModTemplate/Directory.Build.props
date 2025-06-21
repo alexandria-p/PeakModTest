@@ -1,4 +1,10 @@
 <Project>
+<!--#if (!no-tutorial) -->
+  <!--
+    This is a special file that contains shared configuration
+    for all project files in subdirectories.
+  -->
+<!--#endif -->
 
 <!--#if (library) -->
   <!-- NuGet -->
