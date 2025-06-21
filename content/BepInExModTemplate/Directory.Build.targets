@@ -41,7 +41,7 @@
     Build Thunderstore package by calling `dotnet build -c Release -target:PackTS`.
     Publish to Thunderstore by including `-property:PublishTS=true` in the command.
   -->
-  <Target Name="PackTS" DependsOnTargets="PostBuildEvent" Condition="$(ThunderstorePackable) != 'false'">
+  <Target Name="PackTS" DependsOnTargets="Build" Condition="$(ThunderstorePackable) != 'false'">
     <Error
       Text=" PackTS must be called with Release configuration."
       Condition="'$(Configuration)' != 'Release'"
