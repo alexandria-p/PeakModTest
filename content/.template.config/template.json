@@ -32,7 +32,7 @@
             "description": "The thunderstore team to publish this package under.",
             "datatype": "text",
             "replaces": "_ts-team_",
-            "isRequired": "true"
+            "defaultValue": "TODO: Fill in your Thunderstore team name here"
         },
         "no-tutorial": {
             "type": "parameter",
