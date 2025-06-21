@@ -69,7 +69,6 @@ The template "PEAK BepInEx Plugin" was created successfully.
 ├── Directory.Build.targets
 ├── icon.png
 ├── LICENSE
-├── NuGet.Config
 ├── PeakMod.sln
 ├── README.md
 └── src
