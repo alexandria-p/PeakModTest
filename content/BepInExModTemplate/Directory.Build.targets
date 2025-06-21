@@ -13,9 +13,28 @@
     <PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.*" PrivateAssets="all" />
   </ItemGroup>
 
-  <!-- Game references -->
-  <ItemGroup>
+  <!-- NuGet fallback stripped game references -->
+  <ItemGroup Condition="!Exists('$(ManagedDir)')">
     <PackageReference Include="UnityEngine.Modules" Version="6000.0.36" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Local game references -->
+  <ItemGroup Condition="Exists('$(ManagedDir)')">
+<!--#if (!no-tutorial) -->
+    <!--
+      Reference all assemblies except ones that come
+      with our target framework or would cause conflicts
+    -->
+<!--#endif -->
+    <LocalReferences
+      Include="$(ManagedDir)*.dll"
+      Exclude="$(ManagedDir)Mono*.dll;$(ManagedDir)netstandard.dll;$(ManagedDir)System*.dll;$(ManagedDir)mscorlib.dll"
+    />
+    <Reference Include="@(LocalReferences)" Private="false" />
+<!--#if (!no-tutorial) -->
+    <!-- Publicize these assemblies so we can access their internal members -->
+<!--#endif -->
+    <Reference Include="$(ManagedDir)Assembly-CSharp.dll" Private="false" Publicize="true" />
   </ItemGroup>
 
   <!--
@@ -34,4 +53,5 @@
     <Exec Command="dotnet tool restore" />
     <Exec Command="dotnet tcli $(BuildArgument) --package-version $(Version)" />
   </Target>
+
 </Project>
