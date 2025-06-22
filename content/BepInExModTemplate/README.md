@@ -27,3 +27,5 @@ dotnet build -c Release -target:PackTS -v d
 > [!NOTE]  
 > You can learn about different build options with `dotnet build --help`.  
 > `-c` is short for `--configuration` and `-v d` is `--verbosity detailed`.
+
+The built package will be found at `artifacts/thunderstore/`.
