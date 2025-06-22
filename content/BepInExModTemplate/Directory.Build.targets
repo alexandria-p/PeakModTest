@@ -6,12 +6,6 @@
   -->
 <!--#endif -->
 
-  <!-- Import our shared user configuration file -->
-  <Import
-    Project="$(SolutionRoot)Config.Build.user.props"
-    Condition="Exists('$(SolutionRoot)Config.Build.user.props')"
-  />
-
   <!-- Set extra NuGet sources -->
   <PropertyGroup>
     <RestoreAdditionalProjectSources>
