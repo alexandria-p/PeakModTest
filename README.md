@@ -1,6 +1,6 @@
-# BepInEx Template for PEAK
+# BepInEx Template for _GameName_
 
-- [BepInEx Template for PEAK](#bepinex-template-for-peak)
+- [BepInEx Template for _GameName_](#bepinex-template-for-gamename)
   - [Installing](#installing)
     - [From Nuget](#from-nuget)
     - [Manually](#manually)
@@ -9,6 +9,16 @@
     - [Setting Up The Config File](#setting-up-the-config-file)
     - [Thunderstore Packaging](#thunderstore-packaging)
     - [GitHub Actions Publishing](#github-actions-publishing)
+
+Template creator: After forking, replace the following, e.g.:
+
+- `_GameName_` → `Lethal Company` (name from Steam directory)
+- `_GameNameNoSpaces_` → `LethalCompany` (name with spaces removed)
+- `_GameNameShortNoSpacesLowercase_` → `lc` (used for template `shortName`)
+- `_TemplateAuthorNoSpaces_` → `LethalCompanyModding` (GitHub repo & NuGet package prefix)
+- `_ThunderstoreGameIdentifier_` → `lethal-company` (see: <https://thunderstore.io/api/experimental/community/>)
+
+You can then remove this section from the README.
 
 ## Installing
 
@@ -22,7 +32,7 @@
 Run the following command:
 
 ```bash
-dotnet new install PEAKModding.BepInExTemplate
+dotnet new install _TemplateAuthorNoSpaces_.BepInExTemplate
 ```
 
 ### Manually
@@ -35,17 +45,17 @@ If you don't want to install via NuGet or are contributing to this template, you
   - Note: If you are updating the template from an older version use `dotnet new install . --force` instead
   - Note: To uninstall it, run `dotnet new uninstall .`
 
-Great! The template is now installed locally as PEAK BepInEx Plugin.
+Great! The template is now installed locally as _GameName_ BepInEx Plugin.
 
 ## Creating a Project
 
 > [!TIP]  
 > If you've done this before, you can use the `--no-tutorial` option to get rid of tutorial comments. Note that this doesn't get rid of *all* comments.
 
-Open a terminal in your PEAK modding directory, and run:
+Open a terminal in your _GameName_ modding directory, and run:
 
 ```sh
- dotnet new peakmod --name ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
+ dotnet new _GameNameShortNoSpacesLowercase_mod --name ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
 ```
 
 This will create a new directory with the mod name which contains the project.
@@ -57,11 +67,11 @@ You now have a (mostly) working setup. See [Setting Up The Config File](#setting
 This example demonstrates what files should appear and where:
 
 ```sh
-~/Workspace/PEAK$ dotnet new peakmod --name PeakMod --guid com.github.PEAKModding --ts-team PEAKModding
-The template "PEAK BepInEx Plugin" was created successfully.
+~/Workspace/_GameNameNoSpaces_$ dotnet new _GameNameShortNoSpacesLowercase_mod --name MyCoolMod --guid com.github._TemplateAuthorNoSpaces_.MyCoolMod --ts-team _TemplateAuthorNoSpaces_
+The template "_GameNameNoSpaces_ BepInEx Plugin" was created successfully.
 
-~/Workspace/PEAK$ cd PeakMod/
-~/Workspace/PEAK/PeakMod$ tree
+~/Workspace/_GameNameNoSpaces_$ cd MyCoolMod/
+~/Workspace/_GameNameNoSpaces_/MyCoolMod$ tree
 .
 ├── CHANGELOG.md
 ├── Config.Build.user.props.template
@@ -69,11 +79,11 @@ The template "PEAK BepInEx Plugin" was created successfully.
 ├── Directory.Build.targets
 ├── icon.png
 ├── LICENSE
-├── PeakMod.sln
+├── MyCoolMod.sln
 ├── README.md
 └── src
-    └── PeakMod
-        ├── PeakMod.csproj
+    └── MyCoolMod
+        ├── MyCoolMod.csproj
         ├── Plugin.cs
         └── thunderstore.toml
 
