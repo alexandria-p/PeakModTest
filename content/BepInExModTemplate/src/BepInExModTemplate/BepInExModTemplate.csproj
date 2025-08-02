@@ -1,39 +1,38 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-<!--#if (!no-tutorial) -->
-    <!-- This is the most appropriate target framework for the game's Unity version. -->
-<!--#endif -->
-    <TargetFramework>netstandard2.1</TargetFramework>
-<!--#if (!no-tutorial) -->
-    <!-- This is the GUID of your mod. Example: com.github.YourAccount.BepInExTemplate -->
-<!--#endif -->
-    <AssemblyName>_Guid_</AssemblyName>
-<!--#if (!no-tutorial) -->
-    <!-- This is the display name of your mod. Example: BepInEx Template -->
-<!--#endif -->
-    <AssemblyTitle>BepInExModTemplate</AssemblyTitle>
-<!--#if (!no-tutorial) -->
-    <!-- This is the version number of your mod. -->
-<!--#endif -->
-    <Version>0.1.0</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<!-- This is the most appropriate target framework for the game's Unity version. -->
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<RootNamespace>AlexTestTemplate</RootNamespace>
+		<!-- This is the GUID of your mod. Example: com.github.PEAKModding.BepInExTemplate -->
+		<AssemblyName>com.github.PEAKModding.AlexModTest</AssemblyName>
+		<!-- This is the display name of your mod. Example: BepInEx Template -->
+		<AssemblyTitle>AlexModTest</AssemblyTitle>
+		<!-- This is the version number of your mod. -->
+		<Version>1.0.0</Version>
+		<!-- Location on my machine for when I build this solution -->
+		<PeakGameDirectory>D:\Steam\steamapps\common\PEAK</PeakGameDirectory>
+	</PropertyGroup>
 
-<!--#if (library) -->
-  <!-- NuGet metadata -->
-  <PropertyGroup>
-    <IsPackable>true</IsPackable>
-    <!--
-      TODO: Fill these values. See:
-      https://learn.microsoft.com/en-us/nuget/create-packages/package-authoring-best-practices
-    -->
-    <PackageId></PackageId>
-    <Description></Description>
-  </PropertyGroup>
-  <ItemGroup>
-    <None Include="$(SolutionRoot)README.md" Pack="true" PackagePath="/" />
-    <None Include="$(SolutionRoot)icon.png" Pack="true" PackagePath="/" />
-  </ItemGroup>
+	<!-- Primary Package References -->
+	<!-- These are handled by the NuGet Package Manager for this solution -->
+	<!--ItemGroup>
+		<PackageReference Include="HarmonyX" Version="2.10.0" Private="false" />
+	</ItemGroup-->
+	<!--ItemGroup>
+		<PackageReference Include="BepInEx-BepInExPack_PEAK" Version="5.4.75301" Private="False"/>
+	</ItemGroup-->
+
+
+	<!--Private="false" will stop it from being copied to the output folder during build.-->
+	<ItemGroup>
+		<Reference Include="$(PeakGameDirectory)\PEAK_Data\Managed\Assembly-CSharp.dll" Publicize="true" Private="false">
+		</Reference>
+		<Reference Include="$(PeakGameDirectory)\PEAK_Data\Managed\PhotonUnityNetworking.dll" Private="false">
+		</Reference>
+	</ItemGroup>
+
+
 
 <!--#endif -->
 <!--#if (!no-tutorial) -->

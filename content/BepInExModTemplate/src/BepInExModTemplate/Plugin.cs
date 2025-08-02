@@ -1,7 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
+using HarmonyLib;
+using AlexTestTemplate.Patches;
 
-namespace BepInExModTemplate;
+namespace AlexTestTemplate;
 
 //#if (!no-tutorial)
 // Here are some basic resources on code style and naming conventions to help
@@ -27,7 +29,7 @@ public partial class Plugin : BaseUnityPlugin
 //#endif
         Log = Logger;
 
-//#if (!no-tutorial)
+        //#if (!no-tutorial)
         // BepInEx also gives us a config file for easy configuration.
         // See https://lethal.wiki/dev/intermediate/custom-configs
 
@@ -35,7 +37,11 @@ public partial class Plugin : BaseUnityPlugin
         // See https://lethal.wiki/dev/fundamentals/patching-code
 
         // Log our awake here so we can see it in LogOutput.log file
-//#endif
+        //#endif
+        //new Harmony(Info.Metadata.GUID).PatchAll(); // Info.Metadata.GUID // "com.github.PEAKModding.AlexModTest"
+        Harmony.CreateAndPatchAll(typeof(BugleSFXPatch)); // works
+
         Log.LogInfo($"Plugin {Name} is loaded!");
+       
     }
 }

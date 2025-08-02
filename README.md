@@ -1,140 +1,144 @@
-# BepInEx Template for PEAK
+<p align="center"><img src="https://raw.githubusercontent.com/alexandria-p/ContentWarning-KeepCameraAfterDeath/main/logo.png" width="150"/></p><h1 align="center">Keep Camera After Death (Steam build)</h1>
 
-- [BepInEx Template for PEAK](#bepinex-template-for-peak)
-  - [Installing](#installing)
-    - [From NuGet (Recommended)](#from-nuget-recommended)
-    - [Manually](#manually)
-  - [Creating a Project](#creating-a-project)
-    - [Project Structure](#project-structure)
-    - [Setting Up The Config File](#setting-up-the-config-file)
-    - [Thunderstore Packaging](#thunderstore-packaging)
-    - [GitHub Actions Publishing](#github-actions-publishing)
+[![GitHub Page](https://img.shields.io/badge/GitHub-Thunderstore%20Build-blue?logo=github&style=for-the-badge)](https://github.com/alexandria-p/ContentWarning-KeepCameraAfterDeath)
 
-## Installing
+[![Thunderstore Page](https://img.shields.io/thunderstore/v/alexandria_p/Keep_Camera_After_Death?style=for-the-badge&logo=thunderstore)](https://thunderstore.io/c/content-warning/p/alexandria_p/Keep_Camera_After_Death/)
+[![Thunderstore Downloads](https://img.shields.io/thunderstore/dt/alexandria_p/Keep_Camera_After_Death?style=for-the-badge&logo=thunderstore&logoColor=white)](https://thunderstore.io/c/content-warning/p/alexandria_p/Keep_Camera_After_Death)
 
-.NET templates must be installed before they can be used. This means that when you install the template, it doesn't create a new project for you, but now you have the ability to do that.
+[![GitHub Page](https://img.shields.io/badge/GitHub-Steam%20Build-blue?logo=github&style=for-the-badge)](https://github.com/alexandria-p/ContentWarning-KeepCameraAfterDeath-Steam)
 
-> [!NOTE]  
-> You must use .NET SDK 8 or newer to use this template. Older SDK versions are out of support.
+[![Steam Downloads](https://img.shields.io/steam/downloads/3418022830?style=for-the-badge&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3418022830)
+[![Steam Subscriptions](https://img.shields.io/steam/subscriptions/3418022830?style=for-the-badge&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3418022830)
+[![Steam Views](https://img.shields.io/steam/views/3418022830?style=for-the-badge&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3418022830)
+[![Steam Favorites](https://img.shields.io/steam/favorites/3418022830?style=for-the-badge&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3418022830)
+[![Steam Updated](https://img.shields.io/steam/update-date/3418022830?style=for-the-badge&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=3418022830)
 
-### From NuGet (Recommended)
+## Description
 
-Run the following command:
+Lost your camera underground? No worries!
 
-```bash
-dotnet new install PEAKModding.BepInExTemplate
-```
+In the event of:
+- total crew death, or
+- a major fumble where your cameraman left the camera behind before returning to the diving bell
 
-> [!TIP]  
-> You can run `dotnet new update` to update all your dotnet templates. You should do this get the latest versions of everything with the latest fixes and improvements!
+This mod respawns the camera at its regular spawn position on the surface when the crew returns in the evening. This means you can still export your footage and upload it to spooktube to watch together on the sofa.
 
-### Manually
+As a bonus, you can optionally incentivise your players to stay alive and bring their camera home with rewards that are configurable in the game settings.
 
-If you're contributing to the template or prefer a manual installation:
+The host decides whether or not rewards should be distributed for returning with the camera. If they choose to enable rewards, they can configure the amount of Meta Coins (MC) and cash revenue the crew should receive.
 
-1. Clone or download this repository
-2. Open a terminal at the root of the repository
-3. Run:
+### Changelog
 
-```bash
-dotnet new install .
-```
+**v2.0.1**
+-  Add the option to toggle rewards on/off for recovered footage when watching it on the SpookTube TV
 
-To update:
+**v2.0.0**
+- Allow recovery of multiple cameras in a single round
+- Add compatibility with ContentPOVs mod
 
-```bash
-dotnet new install . --force
-```
+**v1.3.0**
+- Include MMHOOK_Assembly-CSharp.dll in project files, so package dependency on Hamunii-AutoHookGenPatcher-1.0.4 can be removed (in preparation to upload to Steam workshop)
+- Pull out logic for the final day into its own tiny mod that is a new dependency: alexandria_p-Always_Play_Final_Day
 
-To uninstall:
+**v1.2.0**
+- Fixed breaking changes introduced by ContentWarningPlugin & BepInEx.BaseUnityPlugin 
+- Add DontDestroyOnLoad to handle above point (simple explanation)
+- Use the new vanilla CW Settings handler instead of a third-party library (previously ContentSettings 1.2.2)
 
-```bash
-dotnet new uninstall .
-```
+**v1.1.0**
+- Allow crew to view their camera footage on the final day if they lost their camera underground, even if the footage won't meet quota (turned **on** by default).
+- *The base game will end the third day immediately, if it detects quota has not been met.*
+- *This feature can be toggled on or off in the game menu, in case it interacts with other mods.*
 
-Once installed, the template will be available as `PEAK BepInEx Plugin` with an alias `peakmod`.
+### Contact Us
 
-## Creating a Project
+🚨 If you found this mod on any site except for *Thunderstore* or *r2 Modman* (or on the Steam Workshop under HumbleKraken), then I cannot guarantee the safety of the file you have downloaded! 🚨
 
-Open a terminal in your PEAK modding directory, and run:
+Please report this back to me on my GitHub https://github.com/alexandria-p or my Twitter account https://twitter.com/HumbleKraken.
 
-> [!NOTE]  
-> You should [set up a Thunderstore team first](<https://thunderstore.io/settings/teams/create/>) so you can use its name in the optional `--ts-team` argument so the template can give you a mostly correctly configured packaging setup.
+Feel free to tweet at me too if you enjoyed using this mod - especially if you attach the footage you were able to save!
 
-```sh
-dotnet new peakmod --name ModName --guid com.github.YourAccount.ModName --ts-team YourThunderstoreTeam
-```
+If you would like to report any bugs, join the Content Warning modding discord and find me there.
 
-> [!TIP]  
-> If you are developing a public API, add the `--library` option for included NuGet metadata!
->
-> You can also use `--no-tutorial` to get rid of tutorial comments in the template. Note that this doesn't get rid of _all_ comments.
->
-> You can run `dotnet new peakmod --help` to see all available options.
+# Installation steps
 
-This will create a new directory with the mod name which contains the project.
+### All crew members must have this mod installed, and follow these steps
 
-You now have a (mostly) working setup. See [Setting Up The Config File](#setting-up-the-config-file) and [Thunderstore Packaging](#thunderstore-packaging) for more.
+* Install the mod on the Steam Workshop
+* Ensure you have its dependencies also installed
+* If there is any trouble, try moving Content Loader and Mycelium higher up the mod loader than this mod.
 
-### Project Structure
+# Why do I need this mod
 
-This example demonstrates what files should appear and where:
+Pssst - even if you don't use this mod, your video files are still saved if you lost your camera underground. Press `F3` to view your videoclips! This will work until you leave the game lobby and can be done in the vanilla (unmodded) game.
 
-```sh
-~/Workspace/PEAK$ dotnet new peakmod --name MyCoolMod --guid com.github.PEAKModding.MyCoolMod --ts-team PEAKModding
-The template "PEAK BepInEx Plugin" was created successfully.
+The KeepCameraAfterDeath mod just allows players to access that footage in-game on a new videocamera, so they can export it to CD and enjoy watching it together on the sofa.
 
-~/Workspace/PEAK$ cd MyCoolMod/
-~/Workspace/PEAK/MyCoolMod$ tree
-.
-├── CHANGELOG.md
-├── Config.Build.user.props.template
-├── Directory.Build.props
-├── Directory.Build.targets
-├── icon.png
-├── LICENSE
-├── MyCoolMod.sln
-├── README.md
-└── src
-    └── MyCoolMod
-        ├── MyCoolMod.csproj
-        ├── Plugin.cs
-        └── thunderstore.toml
+# How does it work?
 
-3 directories, 12 files
-```
+Here is a breakdown of what happens under the hood.
 
-The C# source files for your mod are located in `./src/<project-name>/`. All files above that are more generic project configuration files.
+When a camera is left behind underground, or all crew members die and the camera is forcibly dropped from their inventory, as the diving bell returns to the surface it does a check for any items left behind that it wants to persist for the players to be able to find again in a later dive.
 
-The `Directory.Build.*` files contain shared configuration for all projects in subdirectories. The project is configured so that it's easy to add new projects into your project solution. Even if you don't need that, it's good to follow this standard project structure.
+Cameras are one of the item types that are set to persist for future dives (within the same week).
 
-### Setting Up The Config File
+This mod intercepts at this point. It picks up:
+- when a camera was left behind this run
+- and if that camera does not already exist in the list of persistent objects (so it must be newly dropped)
 
-At the root of your new project you should see `Config.Build.user.props.template` this is a special file that is the template for the project's user-specific config. Make a copy of this file and rename it `Config.Build.user.props` without the template part.
+Instead of letting the crew find that camera again in a future run, this mod will instead save the footage from that camera and load it onto a new camera that it spawns on the surface.
 
-This file will copy your assembly files to a plugins directory and it can be used to configure your paths to the game files and BepInEx plugins directory if the defaults don't work for you.
+Any camera that this mod "saves" will no longer spawn underground on future runs, to prevent duplicate footage from existing (makes sense, right?)
 
-### Thunderstore Packaging
+# Does this mod work if my crew has multiple cameras?
 
-This template comes with Thunderstore packaging built-in, using [TCLI](<https://github.com/thunderstore-io/thunderstore-cli>). You should configure the `src/<project-name>/thunderstore.toml` file for your mod, such as setting the description for your mod.
+Yes! As of update 2.0.0.
 
-You can build Thunderstore packages by running:
+Remember how this mod searches for & preserves the footage from dropped cameras when a run ends?
 
-```sh
-dotnet build -c Release -target:PackTS -v d
-```
+It preserves the footage of every newly dropped camera it finds, to load onto each new camera it spawns on the surface.
 
-> [!NOTE]  
-> You can learn about different build options with `dotnet build --help`.  
-> `-c` is short for `--configuration` and `-v d` is `--verbosity detailed`.
+If your crew drop multiple cameras underground in a single run, then multiple new cameras will spawn on the surface to load the saved data onto.
 
-The built package will be found at `artifacts/thunderstore/`.
+# Known bugs
 
-You can also directly publish to Thunderstore by including `-property:PublishTS=true` in the command.
+- If the player jumps off the edge of the world while underground & holding the camera, that camera does not get recovered by this mod.
 
-> [!NOTE]
-> For publishing to Thunderstore, you need a Thunderstore API token. The publishing to Thunderstore option is intended to be used via automated GitHub actions workflows, so you don't need to worry about it.
+# Future improvements
 
-### GitHub Actions Publishing
+My ideas mostly revolve around handling if a crew somehow has multiple cameras, and manages to leave more than one camera behind on their dive. 
 
-Coming soon.
+Maybe in the future this mod will save all cameras dropped in a run underground, and spawn as many new cameras as it needs on the surface to copy that footage onto. 
+
+Right now it is easiest for me to only save a single camera's worth of footage, because I am piggy-backing how the game spawns that new (single) camera on the porch at the start of a new day.
+
+# Can I copy this mod's code? Can I contribute to this project?
+
+*You cannot wholesale copy this mod with the intent of passing it off as your own.*
+
+Ideally, you should be able to raise an issue or pull request on this project, so that any new functionality can stay in a single mod & be toggleable by users in the game settings. If this gives you trouble, please see the "Contact Us" section of this README for details on how to get in touch.
+
+If you'd like to fork the project to add or change functionality, please message me first at my GitHub or Twitter and make sure you link back to my GitHub repository in your mod description.
+
+https://github.com/alexandria-p/ContentWarning-KeepCameraAfterDeath
+
+I wholeheartedly encourage you to look at the mod files on my GitHub to learn more about how it was made 💝 I have learnt so much by reading the source code of other mods.
+
+# Steam Workshop Dependencies 
+- [RugbugRedfern] Mycelium Networking
+- [HumbleKraken (me!)] Always Play Final Day
+- [Computery] Content Loader (for installing BepinEx)
+
+# References
+
+Scaffolded using Hamunii's tutorials: https://www.youtube.com/watch?v=o0lVCSSKqTY
+
+Uses the Xilo's Content Warning Templates: https://github.com/ContentWarningCommunity/Content-Warning-Mod-Templates
+
+This template uses MonoMod, and the MMHOOK_Assembly-CSharp.dll file generated by Hamunii-AutoHookGenPatcher-1.0.4.
+
+Notes about how to kick-off initialisation for mods in Steam taken from the LandfallGames mod template: https://github.com/landfallgames/ExampleCWPlugin/blob/main/ExampleCWPlugin.cs
+
+This template uses MonoMod, and the MMHOOK_Assembly-CSharp.dll file generated by Hamunii-AutoHookGenPatcher-1.0.4.
+
+[quote]Workshop ID: 3418022830[/quote]
